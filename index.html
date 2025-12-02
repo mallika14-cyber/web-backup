@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jersey Shop</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Jersey Shop</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Cart</a>
+        </nav>
+    </header>
+
+    <section class="product-section">
+        <h2>Latest Jerseys</h2>
+
+        <div class="product-grid">
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" alt="Jersey">
+                <h3>Messi Inter Miami Jersey</h3>
+                <p>₹899</p>
+                <button onclick="addToCart('Messi Inter Miami Jersey', 899)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" alt="Jersey">
+                <h3>Ronaldo Al Nassr Jersey</h3>
+                <p>₹999</p>
+                <button onclick="addToCart('Ronaldo Al Nassr Jersey', 999)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" alt="Jersey">
+                <h3>India Cricket Jersey</h3>
+                <p>₹749</p>
+                <button onclick="addToCart('India Cricket Jersey', 749)">Add to Cart</button>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Jersey Shop. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
