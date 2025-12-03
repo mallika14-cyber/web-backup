@@ -14,21 +14,20 @@
         <div class="logo">Jersey Shop</div>
 
         <nav>
-            <a href="#">Home</a>
-            <a href="#">Cart</a>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
         </nav>
     </header>
 
-    <!-- HERO BANNER -->
+    <!-- HERO -->
     <section class="hero">
-        <h1>Premium Jerseys. Premium Quality.</h1>
-        <p>Football • Cricket • Custom Jerseys</p>
-
-        <button class="shop-btn">Shop Now</button>
+        <h1>Premium Jerseys for True Fans</h1>
+        <p>Exclusive Football, Cricket & Custom Jerseys</p>
+        <a href="#products"><button class="shop-btn">Shop Now</button></a>
     </section>
 
-    <!-- FEATURED PRODUCTS -->
-    <section class="products">
+    <!-- FEATURED -->
+    <section id="products" class="products">
         <h2>Featured Jerseys</h2>
 
         <div class="product-grid">
@@ -37,6 +36,7 @@
                 <img src="https://raw.githubusercontent.com/mallika14-cyber/web-backup/refs/heads/main/images.jfif">
                 <h3>Inter Miami Jersey</h3>
                 <p class="price">₹899</p>
+                <a href="product.html?item=inter-miami" class="details-btn">View Details</a>
                 <button onclick="addToCart('Inter Miami Jersey', 899)">Add to Cart</button>
             </div>
 
@@ -44,6 +44,7 @@
                 <img src="https://via.placeholder.com/300">
                 <h3>Ronaldo Al Nassr Jersey</h3>
                 <p class="price">₹999</p>
+                <a href="product.html?item=ronaldo-nassr" class="details-btn">View Details</a>
                 <button onclick="addToCart('Ronaldo Al Nassr Jersey', 999)">Add to Cart</button>
             </div>
 
@@ -51,6 +52,7 @@
                 <img src="https://via.placeholder.com/300">
                 <h3>India Cricket Jersey</h3>
                 <p class="price">₹749</p>
+                <a href="product.html?item=india-cricket" class="details-btn">View Details</a>
                 <button onclick="addToCart('India Cricket Jersey', 749)">Add to Cart</button>
             </div>
 
