@@ -9,25 +9,26 @@
 
 <body>
 
-<header>
+<header class="header">
     <div class="logo">Jersey Shop</div>
     <nav>
         <a href="index.html">Home</a>
-        <a href="cart.html">Cart</a>
+        <a href="shop.html">Shop</a>
+        <a class="active" href="cart.html">Cart</a>
     </nav>
 </header>
 
 <section class="cart-page">
-    <h2>Your Cart</h2>
+    <h1>Your Cart</h1>
 
-    <div id="cart-items"></div>
+    <div id="cart-list"></div>
 
-    <h3 id="total"></h3>
+    <h2 id="cart-total"></h2>
 
-    <button id="clear-cart">Clear Cart</button>
+    <button class="btn-primary" onclick="clearCart()">Clear Cart</button>
 </section>
 
-<footer>
+<footer class="footer">
     © 2025 Jersey Shop
 </footer>
 
