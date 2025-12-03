@@ -6,14 +6,13 @@
 }
 
 body {
-    /* Main background color - a shade of blue */
-    background: #4E56C0;
+    /* Main background color: light gray for a clean look */
+    background: #f4f4f4; 
 }
 
 header {
-    /* Header/Footer background - a darker purple/violet */
-    background: #9B5DE0;
-    /* Text color for contrast */
+    /* Header/Footer background: stark black */
+    background: black;
     color: white; 
     padding: 20px;
     display: flex;
@@ -41,8 +40,8 @@ header nav a {
 }
 
 .product-card {
-    /* Product card background - the very soft magenta/purple */
-    background: #D78FEE;
+    /* Product card background: clean white */
+    background: white; 
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -57,10 +56,9 @@ header nav a {
     margin-top: 10px;
     padding: 10px;
     width: 100%;
-    /* Button background - the pale pink/light grayish magenta */
-    background: #FDCFFA;
-    /* Button text color - for contrast on light background */
-    color: black; 
+    /* Button background: black for contrast */
+    background: black; 
+    color: white; 
     border: none;
     cursor: pointer;
     border-radius: 8px;
@@ -68,14 +66,14 @@ header nav a {
 }
 
 .product-card button:hover {
-    /* Slightly darker hover state for the button */
-    background: #ffc2ee;
+    /* Slightly lighter gray for hover state */
+    background: #333;
 }
 
 footer {
     margin-top: 40px;
-    /* Header/Footer background - a darker purple/violet */
-    background: #9B5DE0;
+    /* Header/Footer background: stark black */
+    background: black;
     color: white;
     text-align: center;
     padding: 15px;
