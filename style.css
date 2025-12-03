@@ -1,4 +1,6 @@
-/* RESET */
+/* ------------------------------------
+   GLOBAL RESET + VARIABLES
+------------------------------------ */
 * {
     margin: 0;
     padding: 0;
@@ -6,15 +8,29 @@
     font-family: "Poppins", Arial, sans-serif;
 }
 
-/* BODY */
-body {
-    background: #ffffff; /* clean white */
-    color: #111;
+:root {
+    --primary: #4E56C0;
+    --secondary: #9B5DE0;
+    --accent: #D78FEE;
+    --light: #FDCFFA;
+
+    --bg: #ffffff;
+    --text: #111111;
 }
 
-/* HEADER */
+/* ------------------------------------
+   BODY
+------------------------------------ */
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* ------------------------------------
+   HEADER
+------------------------------------ */
 header {
-    background: #000000; /* pure black */
+    background: var(--primary);
     color: white;
     padding: 20px 40px;
     display: flex;
@@ -22,7 +38,7 @@ header {
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 50;
+    z-index: 100;
 }
 
 header nav a {
@@ -30,28 +46,34 @@ header nav a {
     margin-left: 25px;
     text-decoration: none;
     font-weight: 600;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 header nav a:hover {
-    color: #d9d9d9; /* smooth modern gray hover */
+    color: var(--light);
 }
 
-/* TITLE TEXT */
-.product-section h2,
-.product-section h1 {
+/* ------------------------------------
+   SECTION TITLES
+------------------------------------ */
+.product-section h1,
+.product-section h2 {
+    color: var(--primary);
     font-weight: 700;
     margin-bottom: 20px;
-    color: #000;
 }
 
-/* PRODUCT SECTION */
+/* ------------------------------------
+   PRODUCT SECTION
+------------------------------------ */
 .product-section {
     padding: 40px 20px;
     text-align: center;
 }
 
-/* PRODUCT GRID */
+/* ------------------------------------
+   PRODUCT GRID
+------------------------------------ */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -59,49 +81,57 @@ header nav a:hover {
     margin-top: 30px;
 }
 
-/* PRODUCT CARD */
+/* ------------------------------------
+   PRODUCT CARD
+------------------------------------ */
 .product-card {
-    background: #ffffff; /* white card */
+    background: var(--light); /* light purple theme */
     padding: 20px;
-    border-radius: 14px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.10);
     transition: 0.3s ease;
-    border: 1px solid #e5e5e5;
+    border: 2px solid var(--accent);
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    border-color: var(--secondary);
 }
 
-/* IMAGES */
+/* PRODUCT IMAGE */
 .product-card img {
     width: 100%;
     border-radius: 12px;
+    border: 2px solid var(--secondary);
 }
 
-/* BUTTON */
+/* ------------------------------------
+   BUTTONS
+------------------------------------ */
 .product-card button {
     margin-top: 15px;
     padding: 12px;
     width: 100%;
-    background: #000000; /* modern black */
+    background: var(--secondary);
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 10px;
     font-weight: 600;
-    transition: 0.3s;
+    transition: 0.25s ease;
 }
 
 .product-card button:hover {
-    background: #222; /* slightly lighter */
+    background: var(--primary);
 }
 
-/* FOOTER */
+/* ------------------------------------
+   FOOTER
+------------------------------------ */
 footer {
     margin-top: 40px;
-    background: #000000;
+    background: var(--primary);
     color: white;
     text-align: center;
     padding: 18px;
