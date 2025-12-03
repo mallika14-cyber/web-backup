@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Inter Miami Jersey",
+        "price": 899,
+        "img": "https://raw.githubusercontent.com/mallika14-cyber/web-backup/refs/heads/main/images.jfif"
+    },
+    {
+        "id": 2,
+        "name": "Ronaldo Al Nassr Jersey",
+        "price": 999,
+        "img": "https://via.placeholder.com/400"
+    },
+    {
+        "id": 3,
+        "name": "India Cricket Jersey",
+        "price": 749,
+        "img": "https://via.placeholder.com/400"
+    },
+    {
+        "id": 4,
+        "name": "FC Barcelona Jersey",
+        "price": 1099,
+        "img": "https://via.placeholder.com/400"
+    },
+    {
+        "id": 5,
+        "name": "Real Madrid Jersey",
+        "price": 1199,
+        "img": "https://via.placeholder.com/400"
+    }
+]
