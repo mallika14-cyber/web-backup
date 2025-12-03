@@ -137,3 +137,43 @@ footer {
     padding: 18px;
     font-size: 14px;
 }
+
+/* ---------- FORCE-OVERRIDE PALETTE + LAYOUT ----------
+   Paste at the VERY END of your CSS file
+   (This uses specific selectors and !important to override older rules)
+----------------------------------------------------- */
+
+/* Palette variables (your ColorHunt colors) */
+:root {
+  --primary: #4E56C0;
+  --secondary: #9B5DE0;
+  --accent: #D78FEE;
+  --light: #FDCFFA;
+
+  --bg: #ffffff;
+  --text: #111111;
+  --black: #000000;
+}
+
+/* Global reset to ensure base colors apply */
+html, body, main, header, footer, section, div {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* Header — force black bar and white text */
+header, .header, #header, nav, .topbar {
+  background: var(--black) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 18px 28px !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+}
+
+/* header links */
+header a, header a:link, header a:visited, .header a {
+  color: #fff !important;
+  text-decoration: none !important;
