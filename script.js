@@ -1,4 +1,28 @@
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+/* ===================================================
+   MENU (mobile)
+=================================================== */
+function toggleMenu() {
+    document.querySelector("nav").classList.toggle("show");
+}
+
+/* ===================================================
+   LOAD PRODUCT DATABASE
+=================================================== */
+let products = [];
+
+fetch("products.json")
+    .then(res => res.json())
+    .then(data => {
+        products = data;
+        loadTrending();
+        loadShop();
+        loadProductPage();
+    });
+
+/* ===================================================
+   CART SYSTEM
+=================================================== */
+let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
 function saveCart() {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -6,90 +30,118 @@ function saveCart() {
 }
 
 function updateCartCount() {
-    const cartCount = document.getElementById("cart-count");
-    if (cartCount) cartCount.textContent = cart.length;
+    const el = document.getElementById("cart-count");
+    if (el) el.textContent = cart.length;
 }
 
-function addToCart(name, price) {
-    cart.push({ name, price });
+function addToCart(id) {
+    const item = products.find(p => p.id === id);
+    cart.push(item);
     saveCart();
-    alert(name + " added to cart!");
+    alert("Added to cart");
 }
 
-/* ---------------------------
-   PRODUCT DETAILS PAGE LOGIC
------------------------------ */
-const productData = {
-    "inter-miami": {
-        name: "Inter Miami Jersey",
-        price: 899,
-        img: "https://raw.githubusercontent.com/mallika14-cyber/web-backup/refs/heads/main/images.jfif"
-    },
-    "ronaldo-nassr": {
-        name: "Ronaldo Al Nassr Jersey",
-        price: 999,
-        img: "https://via.placeholder.com/300"
-    },
-    "india-cricket": {
-        name: "India Cricket Jersey",
-        price: 749,
-        img: "https://via.placeholder.com/300"
-    }
-};
+/* ===================================================
+   HOMEPAGE: TRENDING
+=================================================== */
+function loadTrending() {
+    const box = document.getElementById("trending-products");
+    if (!box) return;
 
-if (window.location.pathname.includes("product.html")) {
-    const params = new URLSearchParams(window.location.search);
-    const item = params.get("item");
-    const data = productData[item];
-
-    if (data) {
-        document.getElementById("product-img").src = data.img;
-        document.getElementById("product-name").textContent = data.name;
-        document.getElementById("product-price").textContent = "₹" + data.price;
-        document.getElementById("add-btn").onclick = () => addToCart(data.name, data.price);
-    }
+    const trending = products.slice(0, 4);
+    box.innerHTML = trending.map(p => productCard(p)).join("");
 }
 
-/* ---------------------------
-   CART PAGE LOGIC
------------------------------ */
-if (window.location.pathname.includes("cart.html")) {
-    const container = document.getElementById("cart-items");
-    const totalBox = document.getElementById("total");
+/* ===================================================
+   SHOP PAGE
+=================================================== */
+function loadShop() {
+    const box = document.getElementById("shop-products");
+    if (!box) return;
 
-    function renderCart() {
-        container.innerHTML = "";
-        let total = 0;
+    box.innerHTML = products.map(p => productCard(p)).join("");
 
-        cart.forEach((item, index) => {
-            const div = document.createElement("div");
-            div.className = "cart-item";
+    const search = document.getElementById("search");
+    if (!search) return;
 
-            div.innerHTML = `
-                <p>${item.name} - ₹${item.price}</p>
-                <button onclick="removeItem(${index})">Remove</button>
-            `;
+    search.addEventListener("input", () => {
+        box.innerHTML = products
+            .filter(p => p.name.toLowerCase().includes(search.value.toLowerCase()))
+            .map(p => productCard(p))
+            .join("");
+    });
+}
 
-            container.appendChild(div);
-            total += item.price;
-        });
+/* ===================================================
+   PRODUCT CARD HTML
+=================================================== */
+function productCard(p) {
+    return `
+    <div class="product-card">
+        <img src="${p.img}">
+        <h3>${p.name}</h3>
+        <p class="price">₹${p.price}</p>
+        <a class="details-btn" href="product.html?id=${p.id}">View Details</a>
+        <button onclick="addToCart(${p.id})">Add to Cart</button>
+    </div>`;
+}
 
-        totalBox.textContent = "Total: ₹" + total;
-    }
+/* ===================================================
+   PRODUCT PAGE
+=================================================== */
+function loadProductPage() {
+    const box = document.getElementById("product-details");
+    if (!box) return;
 
-    window.removeItem = function(index) {
-        cart.splice(index, 1);
-        saveCart();
-        renderCart();
-    };
+    const params = new URLSearchParams(location.search);
+    const id = Number(params.get("id"));
+    const p = products.find(p => p.id === id);
 
-    document.getElementById("clear-cart").onclick = function() {
-        cart = [];
-        saveCart();
-        renderCart();
-    };
+    if (!p) return;
 
-    renderCart();
+    box.innerHTML = `
+        <div class="details-container">
+            <img src="${p.img}">
+            <div class="info">
+                <h1>${p.name}</h1>
+                <p class="price">₹${p.price}</p>
+                <button class="btn-primary" onclick="addToCart(${p.id})">Add to Cart</button>
+            </div>
+        </div>`;
+}
+
+/* ===================================================
+   CART PAGE
+=================================================== */
+function loadCartPage() {
+    const box = document.getElementById("cart-list");
+    if (!box) return;
+
+    const totalBox = document.getElementById("cart-total");
+
+    box.innerHTML = cart
+        .map((p, i) => `
+        <div class="cart-item">
+            <p>${p.name} - ₹${p.price}</p>
+            <button onclick="removeItem(${i})">Remove</button>
+        </div>
+    `).join("");
+
+    const total = cart.reduce((acc, p) => acc + p.price, 0);
+    totalBox.textContent = "Total: ₹" + total;
+}
+
+function removeItem(i) {
+    cart.splice(i, 1);
+    saveCart();
+    loadCartPage();
+}
+
+function clearCart() {
+    cart = [];
+    saveCart();
+    loadCartPage();
 }
 
 updateCartCount();
+loadCartPage();
