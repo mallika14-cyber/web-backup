@@ -3,67 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jersey Shop</title>
+    <title>Jersey Shop – Premium Sportswear</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="logo">Jersey Shop</div>
+<!-- HEADER -->
+<header class="header">
+    <div class="logo">Jersey Shop</div>
+    
+    <nav id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-        </nav>
-    </header>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</header>
 
-    <!-- HERO -->
-    <section class="hero">
+<!-- HERO BANNER -->
+<section class="hero">
+    <div class="hero-text">
         <h1>Premium Jerseys for True Fans</h1>
-        <p>Exclusive Football, Cricket & Custom Jerseys</p>
-        <a href="#products"><button class="shop-btn">Shop Now</button></a>
-    </section>
+        <p>Exclusive Football • Cricket • Basketball • Custom Jerseys</p>
+        <a href="shop.html"><button class="btn-primary">Shop Now</button></a>
+    </div>
+</section>
 
-    <!-- FEATURED -->
-    <section id="products" class="products">
-        <h2>Featured Jerseys</h2>
+<!-- CATEGORIES -->
+<section class="categories">
+    <h2>Shop by Category</h2>
 
-        <div class="product-grid">
-
-            <div class="product-card">
-                <img src="https://raw.githubusercontent.com/mallika14-cyber/web-backup/refs/heads/main/images.jfif">
-                <h3>Inter Miami Jersey</h3>
-                <p class="price">₹899</p>
-                <a href="product.html?item=inter-miami" class="details-btn">View Details</a>
-                <button onclick="addToCart('Inter Miami Jersey', 899)">Add to Cart</button>
-            </div>
-
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300">
-                <h3>Ronaldo Al Nassr Jersey</h3>
-                <p class="price">₹999</p>
-                <a href="product.html?item=ronaldo-nassr" class="details-btn">View Details</a>
-                <button onclick="addToCart('Ronaldo Al Nassr Jersey', 999)">Add to Cart</button>
-            </div>
-
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300">
-                <h3>India Cricket Jersey</h3>
-                <p class="price">₹749</p>
-                <a href="product.html?item=india-cricket" class="details-btn">View Details</a>
-                <button onclick="addToCart('India Cricket Jersey', 749)">Add to Cart</button>
-            </div>
-
+    <div class="category-grid">
+        <div class="cat-card" onclick="openCategory('football')">
+            <img src="assets/banners/football.jpg">
+            <p>Football Jerseys</p>
         </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer>
-        © 2025 Jersey Shop • All Rights Reserved
-    </footer>
+        <div class="cat-card" onclick="openCategory('cricket')">
+            <img src="assets/banners/cricket.jpg">
+            <p>Cricket Jerseys</p>
+        </div>
 
-<script src="script.js"></script>
-</body>
-</html>
+        <div class="cat-card" onclick="openCategory('basketball')">
+            <img src="assets/banners/basketball.jpg">
+            <p>Basketball Jerseys</p>
+        </div>
+
+        <div class="cat-card" onclick="openCategory('custom')">
+            <img src="assets/banners/custom.jpg">
+            <p>Custom Jerseys</p>
+        </div>
+    </div>
+</section>
+
+<!-- TREN
