@@ -1,16 +1,18 @@
 /* ===========================================
-   GLOBAL COLOR PALETTE
+   MODERN COLOR PALETTE (CLEAN UI)
 =========================================== */
 :root {
-    --primary: #4E56C0;
-    --secondary: #9B5DE0;
-    --accent: #D78FEE;
-    --light: #FDCFFA;
+    --primary: #402E7A;      /* Deep purple */
+    --secondary: #4C3BCF;    /* Vibrant violet */
+    --accent: #4B70F5;       /* Modern blue */
+    --light: #53DCFF;        /* Cyan-sky highlight */
 
-    --black: #000000;
-    --white: #ffffff;
+    --black: #0F0F0F;
+    --white: #FFFFFF;
 
     --radius: 14px;
+    --shadow: 0 6px 18px rgba(0,0,0,0.12);
+    --shadow-soft: 0 4px 14px rgba(0,0,0,0.10);
 }
 
 /* ===========================================
@@ -26,11 +28,11 @@
 body {
     background: var(--white);
     color: var(--black);
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 /* ===========================================
-   HEADER
+   HEADER (Modernized)
 =========================================== */
 .header {
     background: var(--black);
@@ -42,6 +44,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: var(--shadow);
 }
 
 .header a {
@@ -49,75 +52,88 @@ body {
     margin-left: 25px;
     text-decoration: none;
     font-weight: 500;
+    transition: 0.25s;
+    opacity: 0.85;
 }
 
 .header a.active,
 .header a:hover {
     color: var(--accent);
+    opacity: 1;
 }
 
 .menu-icon {
     display: none;
-    font-size: 26px;
+    font-size: 28px;
     cursor: pointer;
 }
 
 /* ===========================================
-   HERO SECTION
+   HERO SECTION (Cleaner Gradient)
 =========================================== */
 .hero {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    padding: 100px 20px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    padding: 110px 20px;
     text-align: center;
     color: var(--white);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: var(--shadow);
 }
 
 .hero h1 {
-    font-size: 44px;
+    font-size: 48px;
     margin-bottom: 12px;
+    font-weight: 700;
+    letter-spacing: -1px;
 }
 
 .btn-primary {
-    margin-top: 20px;
-    background: var(--accent);
+    margin-top: 25px;
+    background: var(--light);
     color: var(--black);
-    padding: 12px 24px;
+    padding: 14px 28px;
     border: none;
     border-radius: var(--radius);
     cursor: pointer;
     font-weight: 600;
+    transition: 0.25s;
+    box-shadow: var(--shadow-soft);
 }
 
 .btn-primary:hover {
-    background: var(--light);
+    background: var(--accent);
+    color: var(--white);
 }
 
 /* ===========================================
-   CATEGORIES
+   CATEGORIES (Polished UI)
 =========================================== */
 .categories {
-    padding: 40px;
+    padding: 50px 40px;
     text-align: center;
 }
 
 .categories h2 {
-    font-size: 30px;
+    font-size: 32px;
     color: var(--primary);
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    font-weight: 700;
 }
 
 .category-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
+    gap: 28px;
 }
 
 .cat-card {
     border-radius: var(--radius);
     overflow: hidden;
     cursor: pointer;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-    transition: 0.3s;
+    box-shadow: var(--shadow);
+    transition: 0.28s;
+    background: var(--white);
 }
 
 .cat-card img {
@@ -127,50 +143,52 @@ body {
 }
 
 .cat-card p {
-    padding: 12px;
-    background: var(--black);
+    padding: 14px;
+    background: var(--primary);
     color: var(--white);
     text-align: center;
     font-weight: 600;
 }
 
 .cat-card:hover {
-    transform: scale(1.04);
+    transform: translateY(-6px);
 }
 
 /* ===========================================
-   PRODUCTS
+   PRODUCT GRID (Modern Clean Cards)
 =========================================== */
 .products-section {
-    padding: 40px;
+    padding: 50px;
     text-align: center;
 }
 
 .products-section h2 {
-    font-size: 30px;
+    font-size: 32px;
     color: var(--primary);
+    font-weight: 700;
 }
 
 .product-grid {
-    margin-top: 30px;
+    margin-top: 35px;
     display: grid;
-    gap: 30px;
+    gap: 32px;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .product-card {
-    background: var(--light);
-    border: 2px solid var(--accent);
+    background: var(--white);
     border-radius: var(--radius);
-    padding: 18px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    padding: 20px;
+    box-shadow: var(--shadow-soft);
     text-align: left;
-    transition: 0.3s;
+    transition: 0.28s;
+    border: 1px solid rgba(0,0,0,0.06);
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--secondary);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+    border-color: var(--accent);
 }
 
 .product-card img {
@@ -181,14 +199,14 @@ body {
 }
 
 .price {
-    margin: 8px 0;
-    color: var(--primary);
+    margin: 10px 0;
+    color: var(--secondary);
     font-weight: 700;
 }
 
 .details-btn {
     display: inline-block;
-    margin: 10px 0;
+    margin: 8px 0;
     text-decoration: none;
     color: var(--primary);
     font-weight: 600;
@@ -196,12 +214,13 @@ body {
 
 .product-card button {
     width: 100%;
-    padding: 12px;
+    padding: 13px;
     background: var(--secondary);
     border: none;
     color: var(--white);
     border-radius: var(--radius);
     font-weight: 600;
+    transition: 0.25s;
 }
 
 .product-card button:hover {
@@ -213,21 +232,22 @@ body {
 =========================================== */
 .shop-header {
     text-align: center;
-    padding: 35px;
+    padding: 40px;
 }
 
 #search {
     width: 70%;
-    padding: 14px;
+    padding: 16px;
     border-radius: var(--radius);
     border: 2px solid var(--accent);
+    box-shadow: var(--shadow-soft);
 }
 
 /* ===========================================
    PRODUCT DETAILS PAGE
 =========================================== */
 .product-details {
-    padding: 40px;
+    padding: 50px;
 }
 
 .details-container {
@@ -237,15 +257,16 @@ body {
 }
 
 .details-container img {
-    width: 360px;
-    height: 360px;
+    width: 380px;
+    height: 380px;
     object-fit: cover;
     border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
 .info h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
+    font-size: 34px;
+    margin-bottom: 12px;
     color: var(--primary);
 }
 
@@ -253,18 +274,19 @@ body {
    CART PAGE
 =========================================== */
 .cart-page {
-    padding: 40px;
+    padding: 50px;
 }
 
 .cart-item {
-    background: var(--light);
+    background: var(--white);
     border: 2px solid var(--accent);
     border-radius: var(--radius);
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 22px;
+    margin-bottom: 22px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: var(--shadow-soft);
 }
 
 /* ===========================================
@@ -274,16 +296,22 @@ body {
     margin-top: 40px;
     background: var(--black);
     color: var(--white);
-    padding: 40px;
+    padding: 50px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
+    gap: 35px;
 }
 
 .footer a {
     color: var(--light);
     display: block;
-    margin: 5px 0;
+    margin: 6px 0;
+    opacity: 0.9;
+    transition: 0.25s;
+}
+
+.footer a:hover {
+    opacity: 1;
 }
 
 /* ===========================================
@@ -298,6 +326,7 @@ body {
         top: 65px;
         right: 0;
         padding: 20px;
+        box-shadow: var(--shadow);
     }
 
     .menu-icon {
